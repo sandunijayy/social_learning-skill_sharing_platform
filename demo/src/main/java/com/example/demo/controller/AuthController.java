@@ -98,12 +98,12 @@ public class PostController {
             return ResponseEntity.notFound().build();
         }
     }
-
     @GetMapping("/shared")
     public ResponseEntity<List<SharedPost>> getSharedPosts() {
         String userId = SecurityContextHolder.getContext().getAuthentication().getName();
         List<SharedPost> sharedPosts = postService.getSharedPostsByUserId(userId);
         return ResponseEntity.ok(sharedPosts);
     }
+   
 
 }
