@@ -16,13 +16,12 @@ const App = () => {
                 <Routes>
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Post />} />
-                   
+                    <Route path="/shared" element={<SharedPosts />} />
                     <Route path="/dashboard" element={<Post />} />
                     <Route path="/post" element={<Post />} />
                     <Route path="/mypost" element={<MyPosts />} />
                     <Route path="/my-profile" element={<MyProfile/>} />
                     <Route path="/" element={<Login  />} />
-                    <Route path="/shared" element={<SharedPosts />} />
                 </Routes>
             </Router>
         </GoogleOAuthProvider>
