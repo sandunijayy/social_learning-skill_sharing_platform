@@ -41,6 +41,10 @@ const Sidebar = ({ isOpen, toggleSidebar, navigate, handleLogout }) => {
             onClick: () => { navigate('/'); toggleSidebar(); },
             highlight: false
         },
+        
+
+
+
         {
             icon: <PostAdd />,
             text: 'My Posts',
