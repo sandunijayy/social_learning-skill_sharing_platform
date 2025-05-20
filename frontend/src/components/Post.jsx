@@ -24,9 +24,12 @@ import {
 } from '@mui/material';
 import { motion } from 'framer-motion';
 
+
+
 // Import the separated components
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
+
 
 const Post = () => {
     const [posts, setPosts] = useState([]);
