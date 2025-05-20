@@ -19,7 +19,7 @@ import java.util.Collections;
 
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
-
+      
     @Value("${jwt.secret}")
     private String secretKey;
 
