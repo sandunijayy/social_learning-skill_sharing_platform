@@ -246,3 +246,23 @@ export const notificationAPI = {
   readNotification: (id) => api.put(`/api/notifications/${id}/read`),
   deleteNotification: (id) => api.delete(`/api/notifications/${id}`),
 }
+
+
+//feedback API
+export const feedbackAPI = {
+  getAllFeedbacks: () => api.get("/api/feedbacks"),
+  getUserFeedbacks: () => api.get("/api/feedbacks/user"),
+  getFeedbackById: (id) => api.get(`/api/feedbacks/${id}`),
+  createFeedback: (feedbackData) => {
+    console.log("Creating feedback with data:", feedbackData);
+    return api.post("/api/feedbacks", feedbackData);
+  },
+  updateFeedback: (id, feedbackData) => {
+    console.log(`Updating feedback ${id} with data:`, feedbackData);
+    return api.put(`/api/feedbacks/${id}`, feedbackData);
+  },
+  deleteFeedback: (id) => {
+    console.log(`Deleting feedback ${id}`);
+    return api.delete(`/api/feedbacks/${id}`);
+  },
+};

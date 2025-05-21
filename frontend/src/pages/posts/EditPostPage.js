@@ -237,7 +237,7 @@ const EditPostPage = () => {
           </select>
         </div>
 
-        <div className="form-group">
+        {/* <div className="form-group">
           <label htmlFor="title">Title</label>
           <input
             type="text"
@@ -247,7 +247,7 @@ const EditPostPage = () => {
             onChange={handleChange}
             placeholder="Enter a descriptive title"
           />
-        </div>
+        </div> */}
 
         <div className="form-group">
           <label htmlFor="content">Content</label>

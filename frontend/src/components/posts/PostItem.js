@@ -256,7 +256,7 @@ const PostItem = ({ post }) => {
         {post.content ? <p>{post.content}</p> : <p className="text-muted">No content available</p>}
       </div>
 
-      {/* Debug toggle button */}
+      {/* Debug toggle button
       <button
         onClick={() => setShowDebug(!showDebug)}
         style={{
@@ -269,10 +269,13 @@ const PostItem = ({ post }) => {
         }}
       >
         {showDebug ? "Hide Debug" : "Show Debug"}
-      </button>
+      </button> */}
 
       {/* Debug info */}
-      {renderDebugInfo()}
+      {/* {renderDebugInfo()} */}
+
+      {/* Media content */}
+      {renderMedia()}
 
       {/* Media content */}
       {renderMedia()}

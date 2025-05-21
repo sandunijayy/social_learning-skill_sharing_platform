@@ -29,6 +29,11 @@ import StoriesPage from "./pages/stories/StoriesPage"
 import CreateStoryPage from "./pages/stories/CreateStoryPage"
 import LearningPlanDebugger from "./pages/learning/LearningPlanDebugger"
 import LearningPlansListPage from "./pages/learning/LearningPlansListPage"
+//import feedback pages
+
+import FeedbacksPage from './pages/feedback/FeedbacksPage';
+import CreateFeedbackPage from "./pages/feedback/CreateFeedbackPage"
+import EditFeedbackPage from "./pages/feedback/EditFeedbackPage"
 
 function App() {
   const { isAuthenticated, loading } = useAuth()
@@ -115,6 +120,36 @@ function App() {
             </ProtectedRoute>
           }
         />
+
+        {/* feedback Routes */}
+        <Route
+          path="feedback"
+          element={
+            <ProtectedRoute>
+              <FeedbacksPage />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/feedbacks/create"
+          element={
+            <ProtectedRoute>
+              <CreateFeedbackPage />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/feedbacks/edit/:id"
+          element={
+            <ProtectedRoute>
+              <EditFeedbackPage />
+            </ProtectedRoute>
+          }
+        />
+
+
 
         {/* Learning Plan Routes */}
         <Route

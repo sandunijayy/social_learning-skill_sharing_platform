@@ -323,7 +323,7 @@ const PostDetailPage = () => {
           <p>{post.content}</p>
         </div>
 
-        {/* Debug mode toggle button */}
+        {/* Debug mode toggle button
         <button
           onClick={() => setDebugMode(!debugMode)}
           style={{
@@ -335,10 +335,10 @@ const PostDetailPage = () => {
           }}
         >
           {debugMode ? "Hide Debug Info" : "Show Debug Info"}
-        </button>
-
-        {/* Media debugger */}
-        {debugMode && <MediaDebugger media={processedMedia.length > 0 ? processedMedia : post?.media} />}
+        </button> */}
+{/* 
+        Media debugger
+        {debugMode && <MediaDebugger media={processedMedia.length > 0 ? processedMedia : post?.media} />} */}
 
         {/* Regular media display */}
         {renderMedia()}
