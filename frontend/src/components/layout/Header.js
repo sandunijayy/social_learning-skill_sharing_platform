@@ -52,7 +52,7 @@ const Header = () => {
       <div className="header-container">
         <div className="header-logo">
           <Link to="/">
-            <h1>SkillUp</h1>
+            <h1>SkillShare</h1>
           </Link>
         </div>
 

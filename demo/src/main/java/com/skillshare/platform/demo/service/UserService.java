@@ -61,7 +61,8 @@ public class UserService implements UserDetailsService {
     }
 
     @Transactional
-    public UserDTO updateUser(Long id, UserDTO userDTO, MultipartFile profileImage, MultipartFile coverImage) throws IOException {
+    public UserDTO updateUser(Long id, UserDTO userDTO, MultipartFile profileImage, MultipartFile coverImage)
+            throws IOException {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("User not found with id: " + id));
 
