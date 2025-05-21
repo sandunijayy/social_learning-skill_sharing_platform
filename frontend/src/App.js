@@ -16,6 +16,7 @@ import RegisterPage from "./pages/auth/RegisterPage"
 import ProfilePage from "./pages/profile/ProfilePage"
 import EditProfilePage from "./pages/profile/EditProfilePage"
 import PostDetailPage from "./pages/posts/PostDetailPage"
+import EditPostPage from "./pages/posts/EditPostPage"    //edit post page added
 import CreatePostPage from "./pages/posts/CreatePostPage"
 import ExplorePage from "./pages/ExplorePage"
 import LearningPlanPage from "./pages/learning/LearningPlanPage"
@@ -73,6 +74,18 @@ function App() {
             </ProtectedRoute>
           }
         />
+
+        {/* Edit Post Route */}
+        <Route
+          path="posts/:id/edit"
+          element={
+            <ProtectedRoute>
+              <EditPostPage />
+            </ProtectedRoute>
+          }
+        />
+
+
 
         {/* Profile Routes */}
         <Route

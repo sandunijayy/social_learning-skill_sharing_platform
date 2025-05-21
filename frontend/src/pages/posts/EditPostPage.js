@@ -51,7 +51,7 @@ const EditPostPage = () => {
         }
 
         setFormData({
-          title: post.title || "",
+          title: post.title || "",   //frontend/src/pages/posts/EditPostPage.js
           content: post.content || "",
           postType: post.type || "SKILL",
           media: [],
