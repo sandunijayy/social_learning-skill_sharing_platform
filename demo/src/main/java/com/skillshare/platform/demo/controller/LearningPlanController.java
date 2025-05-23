@@ -59,7 +59,8 @@ public class LearningPlanController {
         try {
             System.out.println("GET /api/learning-plans/search called with query: " + query);
             Page<LearningPlanDTO> learningPlans = learningPlanService.searchLearningPlans(query, pageable);
-            System.out.println("Returning " + learningPlans.getTotalElements() + " learning plans for search query: " + query);
+            System.out.println(
+                    "Returning " + learningPlans.getTotalElements() + " learning plans for search query: " + query);
             return ResponseEntity.ok(ApiResponse.success(learningPlans));
         } catch (Exception e) {
             System.err.println("Error in searchLearningPlans: " + e.getMessage());
@@ -86,7 +87,10 @@ public class LearningPlanController {
     }
 
     @PutMapping("/{id}")
-    @PreAuthorize("@learningPlanService.getLearningPlanById(#id).user.id == authentication.principal.id")
+    @PreAuthorize("@learningPlanService.getLearningPlanById(#id).user.id == authentication.principal.id") // updated one
+
+    // @PreAuthorize("@learningPlanService.getLearningPlanById(#id).user.id ==
+    // authentication.principal.id")
     public ResponseEntity<ApiResponse<LearningPlanDTO>> updateLearningPlan(
             @PathVariable Long id,
             @Valid @RequestBody LearningPlanRequest request,
@@ -103,13 +107,47 @@ public class LearningPlanController {
         }
     }
 
+    /*
+     * / @DeleteMapping("/{id}")
+     * 
+     * @PreAuthorize("@learningPlanService.getLearningPlanById(#id).user.id == authentication.principal.id"
+     * )
+     * public ResponseEntity<ApiResponse<Void>> deleteLearningPlan(
+     * 
+     * @PathVariable Long id,
+     * 
+     * @CurrentUser Long currentUserId) {
+     * try {
+     * System.out.println("DELETE /api/learning-plans/" + id + " called by user " +
+     * currentUserId);
+     * learningPlanService.deleteLearningPlan(id, currentUserId);
+     * System.out.println("Deleted learning plan with id " + id);
+     * return
+     * ResponseEntity.ok(ApiResponse.success("Learning plan deleted successfully",
+     * null));
+     * } catch (Exception e) {
+     * System.err.println("Error in deleteLearningPlan: " + e.getMessage());
+     * e.printStackTrace();
+     * throw e;
+     * }
+     * }
+     */
+
+    // updated deletemapping method
+
     @DeleteMapping("/{id}")
-    @PreAuthorize("@learningPlanService.getLearningPlanById(#id).user.id == authentication.principal.id")
     public ResponseEntity<ApiResponse<Void>> deleteLearningPlan(
             @PathVariable Long id,
             @CurrentUser Long currentUserId) {
         try {
             System.out.println("DELETE /api/learning-plans/" + id + " called by user " + currentUserId);
+
+            LearningPlanDTO plan = learningPlanService.getLearningPlanById(id);
+            if (!plan.getUser().getId().equals(currentUserId)) {
+                return ResponseEntity.status(403)
+                        .body(ApiResponse.error("You are not authorized to delete this learning plan"));
+            }
+
             learningPlanService.deleteLearningPlan(id, currentUserId);
             System.out.println("Deleted learning plan with id " + id);
             return ResponseEntity.ok(ApiResponse.success("Learning plan deleted successfully", null));

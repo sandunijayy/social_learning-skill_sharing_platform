@@ -193,7 +193,7 @@ const CreatePostPage = () => {
           </select>
         </div>
 
-        <div className="form-group">
+        {/* <div className="form-group">
           <label htmlFor="title">Title</label>
           <input
             type="text"
@@ -204,7 +204,7 @@ const CreatePostPage = () => {
             placeholder="Enter a descriptive title"
             required
           />
-        </div>
+        </div> */}
 
         <div className="form-group">
           <label htmlFor="content">Content</label>

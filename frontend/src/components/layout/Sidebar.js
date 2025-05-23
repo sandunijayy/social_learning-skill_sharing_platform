@@ -24,7 +24,7 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="sidebar-header">
-        <h1 className="app-name">SkillUp</h1>
+        <h1 className="app-name">SkillShare</h1>
       </div>
 
       <div className="sidebar-content">
@@ -63,6 +63,13 @@ const Sidebar = () => {
             <i className="material-icons">notifications</i>
             <span>Notifications</span>
           </button>
+
+          {/* add feedback button */}
+          <button onClick={() => handleNavigation("/feedback")} className="sidebar-nav-item">
+            <i className="material-icons">feedback</i>
+            <span>Feedback</span>
+          </button>
+
 
           {currentUser && (
             <button onClick={() => handleNavigation(`/profile/${currentUser.username}`)} className="sidebar-nav-item">

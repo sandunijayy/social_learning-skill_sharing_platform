@@ -16,6 +16,7 @@ import RegisterPage from "./pages/auth/RegisterPage"
 import ProfilePage from "./pages/profile/ProfilePage"
 import EditProfilePage from "./pages/profile/EditProfilePage"
 import PostDetailPage from "./pages/posts/PostDetailPage"
+import EditPostPage from "./pages/posts/EditPostPage"    //edit post page added
 import CreatePostPage from "./pages/posts/CreatePostPage"
 import ExplorePage from "./pages/ExplorePage"
 import LearningPlanPage from "./pages/learning/LearningPlanPage"
@@ -28,6 +29,11 @@ import StoriesPage from "./pages/stories/StoriesPage"
 import CreateStoryPage from "./pages/stories/CreateStoryPage"
 import LearningPlanDebugger from "./pages/learning/LearningPlanDebugger"
 import LearningPlansListPage from "./pages/learning/LearningPlansListPage"
+//import feedback pages
+
+import FeedbacksPage from './pages/feedback/FeedbacksPage';
+import CreateFeedbackPage from "./pages/feedback/CreateFeedbackPage"
+import EditFeedbackPage from "./pages/feedback/EditFeedbackPage"
 
 function App() {
   const { isAuthenticated, loading } = useAuth()
@@ -74,6 +80,18 @@ function App() {
           }
         />
 
+        {/* Edit Post Route */}
+        <Route
+          path="posts/:id/edit"
+          element={
+            <ProtectedRoute>
+              <EditPostPage />
+            </ProtectedRoute>
+          }
+        />
+
+
+
         {/* Profile Routes */}
         <Route
           path="profile/:username"
@@ -102,6 +120,36 @@ function App() {
             </ProtectedRoute>
           }
         />
+
+        {/* feedback Routes */}
+        <Route
+          path="feedback"
+          element={
+            <ProtectedRoute>
+              <FeedbacksPage />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/feedbacks/create"
+          element={
+            <ProtectedRoute>
+              <CreateFeedbackPage />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/feedbacks/edit/:id"
+          element={
+            <ProtectedRoute>
+              <EditFeedbackPage />
+            </ProtectedRoute>
+          }
+        />
+
+
 
         {/* Learning Plan Routes */}
         <Route
